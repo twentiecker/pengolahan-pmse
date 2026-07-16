@@ -1,13 +1,13 @@
 import pandas as pd
 import os
 
-LLA_FILE_1 = "data/240426/lla_2025_202604242003.csv"
-LLA_FILE_2 = "data/240426/lla_2026_202604242014.csv"
+LLA_FILE_1 = "data/050526/lla_2025_202605051134.csv"
+LLA_FILE_2 = "data/050526/lla_2026_202605051138.csv"
 
-NON_LLA_FILE_1 = "data/240426/non_lla_2025_202604242017.csv"
-NON_LLA_FILE_2 = "data/240426/non_lla_2026_202604242017.csv"
+NON_LLA_FILE_1 = "data/050526/non_lla_2025_202605051140.csv"
+NON_LLA_FILE_2 = "data/050526/non_lla_2026_202605051141.csv"
 
-OUTPUT_FOLDER = "output/240426"
+OUTPUT_FOLDER = "output/050526"
 
 
 # ######################################

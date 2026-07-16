@@ -6,9 +6,9 @@ from math import ceil
 # CONFIG
 # =========================
 input_file = (
-    "output/240426/deskripsi_payment_yang_perlu_ditambahkan.csv"  # file csv sumber
+    "output/050526/deskripsi_produk_yang_perlu_ditambahkan.csv"  # file csv sumber
 )
-output_folder = "payment/hasil_split"  # folder output
+output_folder = "produk/hasil_split"  # folder output
 rows_per_file = 200  # jumlah baris tiap file
 
 # =========================

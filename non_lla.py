@@ -1,13 +1,13 @@
 import pandas as pd
 import os
 
-NON_LLA_FILE_1 = "data/240426/non_lla_2025_202604242017.csv"
-NON_LLA_FILE_2 = "data/240426/non_lla_2026_202604242017.csv"
+LLA_FILE_1 = "data/050526/lla_2025_202605051134.csv"
+LLA_FILE_2 = "data/050526/lla_2026_202605051138.csv"
 
-LLA_FILE_1 = "data/240426/lla_2025_202604242003.csv"
-LLA_FILE_2 = "data/240426/lla_2026_202604242014.csv"
+NON_LLA_FILE_1 = "data/050526/non_lla_2025_202605051140.csv"
+NON_LLA_FILE_2 = "data/050526/non_lla_2026_202605051141.csv"
 
-OUTPUT_FOLDER = "output/240426"
+OUTPUT_FOLDER = "output/050526"
 
 # ######################################
 # NON LLA
@@ -66,6 +66,50 @@ print(df_bersih[df_bersih["B3AR1S31"] == 471746057000000].head())
 # ======================================
 df_bersih.loc[:, "B3AR1S31"] = df_bersih["B3AR1S31"].replace(478118377000000, 478118377)
 df_bersih.loc[:, "B3AR1S31"] = df_bersih["B3AR1S31"].replace(471746057000000, 471746057)
+
+mask = (
+    (df_bersih["pid"] == 18)
+    & (df_bersih["triwulan"] == 1)
+    & (df_bersih["tahun"] == 2026)
+)
+cols = [
+    "B3AR1S00",
+    "B3AR1S11",
+    "B3AR1S12",
+    "B3AR1S13",
+    "B3AR1S14",
+    "B3AR1S15",
+    "B3AR1S16",
+    "B3AR1S17",
+    "B3AR1S18",
+    "B3AR1S19",
+    "B3AR1S21",
+    "B3AR1S31",
+    "B3AR1S32",
+    "B3AR1S33",
+    "B3AR1S34",
+    "B3AR1S35",
+    "B3AR1S36",
+    "B3AR1S51",
+    "B3AR1S52",
+    "B3AR1S53",
+    "B3AR1S61",
+    "B3AR1S62",
+    "B3AR1S63",
+    "B3AR1S64",
+    "B3AR1S65",
+    "B3AR1S71",
+    "B3AR1S72",
+    "B3AR1S73",
+    "B3AR1S74",
+    "B3AR1S75",
+    "B3AR1S76",
+    "B3AR1S81",
+    "B3AR1S82",
+    "B3AR1S91",
+    "B3AR1S94",
+]
+df_bersih.loc[mask, cols] = df_bersih.loc[mask, cols] / 100
 
 # ======================================
 # Step 3c: Lihat hasil setelah replace
@@ -377,7 +421,7 @@ panel_cols = [
     "is_panel_25Q1_25Q4",
     "is_panel_25Q4_26Q1",
     "is_panel_25Q1_26Q1",
-    "panel_25Q1_25Q4_26Q1",
+    "is_panel_25Q1_25Q4_26Q1",
 ]
 
 for col in panel_cols:
@@ -404,6 +448,7 @@ print(
             "is_panel_25Q1_25Q4",
             "is_panel_25Q4_26Q1",
             "is_panel_25Q1_26Q1",
+            "is_panel_25Q1_25Q4_26Q1",
         ]
     ].head(10)
 )
